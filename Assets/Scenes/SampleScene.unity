@@ -1109,8 +1109,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2025040287}
-  - component: {fileID: 2025040289}
   - component: {fileID: 2025040286}
+  - component: {fileID: 2025040292}
   - component: {fileID: 2025040290}
   - component: {fileID: 2025040291}
   m_Layer: 0
@@ -1159,7 +1159,40 @@ Transform:
   - {fileID: 963194228}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &2025040289
+--- !u!114 &2025040290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025040285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61130a98e2af4e84e828ea5aedee2077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensetivity: 2
+--- !u!114 &2025040291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025040285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e271522ccde113c418cc58bd3c3ed0fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 51.1
+  acceleration: 10
+  deceleration: 10
+  jumpForce: 5
+  maxJumps: 2
+  dashDistance: 5
+  dashDuration: 0.2
+  dashCooldown: 1
+--- !u!54 &2025040292
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1186,37 +1219,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2025040290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2025040285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61130a98e2af4e84e828ea5aedee2077, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sensetivity: 2
---- !u!114 &2025040291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2025040285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e271522ccde113c418cc58bd3c3ed0fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runSpeed: 10
-  sideStepSpeed: 5
-  acceleration: 3
-  deceleration: 5
-  jumpForce: 5
-  wallJumpForce: 7
 --- !u!1 &2103362890
 GameObject:
   m_ObjectHideFlags: 0

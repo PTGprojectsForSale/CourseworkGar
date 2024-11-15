@@ -4,86 +4,21 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //[Range(1f, 100f)]
-    //public float runSpeed = 10;
-    //[Range(1f, 100f)]
-    //public float sideStepSpeed = 5;
-
-    //[Range(0.1f, 10f)]
-    //public float acceleration = 3f;
-    //[Range(0.1f, 10f)]
-    //public float deceleration = 5f;
-
-    //float maxXSpeed;
-    //float xSpeed = 0;
-    //float maxZSpeed;
-    //float zSpeed = 0;
-
-    //Rigidbody rb;
-    //Vector3 V;
-
-
-    //void Start()
-    //{
-    //    rb = GetComponent<Rigidbody>();
-
-    //    maxZSpeed = runSpeed;
-    //    maxXSpeed = sideStepSpeed;
-    //}
-
-    //void Update()
-    //{
-    //    float x = Input.GetAxisRaw("Horizontal");
-    //    float z = Input.GetAxisRaw("Vertical");
-
-    //    bool sprint = (Input.GetKey(KeyCode.LeftShift));
-
-    //    if (sprint)
-    //        maxZSpeed = runSpeed * 1.5f;
-    //    else 
-    //        maxZSpeed = runSpeed;
-
-
-    //    if (x != 0)
-    //        xSpeed = Mathf.Lerp(xSpeed, x * maxXSpeed, acceleration * Time.deltaTime);
-    //    else 
-    //        if (xSpeed != 0)
-    //        xSpeed = Mathf.Lerp(xSpeed, x * maxXSpeed, deceleration * Time.deltaTime);
-
-    //    if (z != 0)
-    //        zSpeed = Mathf.Lerp(zSpeed, z * maxZSpeed, acceleration * Time.deltaTime);
-    //    else
-    //        if (zSpeed != 0)
-    //        zSpeed = Mathf.Lerp(zSpeed, z * maxZSpeed, deceleration * Time.deltaTime);
-
-
-    //    V = new Vector3(x, 0, z).normalized;
-    //    V.x *= xSpeed < 0 ? -xSpeed : xSpeed;
-    //    V.z *= zSpeed < 0 ? -zSpeed : zSpeed;
-
-
-
-    //    V = transform.TransformDirection(V);
-
-    //    V.y = rb.velocity.y;
-
-    //    rb.velocity = V;
-    //}
-
     [Range(1f, 100f)]
-    public float runSpeed = 10;
-    [Range(1f, 100f)]
-    public float sideStepSpeed = 5;
+    public float speed = 10;
 
     [Range(0.1f, 10f)]
     public float acceleration = 3f;
     [Range(0.1f, 10f)]
     public float deceleration = 5f;
 
-    [Range(1f, 20f)]
+    [Range(0.1f, 10f)]
     public float jumpForce = 5f; // Сила прыжка
-    [Range(1f, 20f)]
-    public float wallJumpForce = 7f; // Сила прыжка от стены
+    public int maxJumps = 2; // Количество прыжков (для дабл-джампа)
+
+    public float dashDistance = 5f; // Дистанция рывка
+    public float dashDuration = 0.2f; // Длительность рывка
+    public float dashCooldown = 1f; // Перезарядка рывка
 
     private float maxXSpeed;
     private float xSpeed = 0;
@@ -94,20 +29,26 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 V;
 
     private bool isGrounded; // Проверка на земле
+    private int jumpCount; // Счётчик прыжков
+    private bool canDash = true; // Доступность рывка
+    private bool isDashing = false; // Флаг выполнения рывка
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
 
-        maxZSpeed = runSpeed;
-        maxXSpeed = sideStepSpeed;
+        maxZSpeed = speed;
+        maxXSpeed = speed;
     }
 
     void Update()
     {
-        HandleMovement();
-        HandleJump();
-        //ApplyMovement();
+        if (!isDashing)
+        {
+            HandleMovement();
+            HandleJump();
+        }
+        HandleDash();
     }
 
     void HandleMovement()
@@ -115,28 +56,19 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
 
-        bool sprint = (Input.GetKey(KeyCode.LeftShift));
-
-        if (sprint)
-            maxZSpeed = runSpeed * 1.5f;
-        else
-            maxZSpeed = runSpeed;
-
         if (x != 0)
             xSpeed = Mathf.Lerp(xSpeed, x * maxXSpeed, acceleration * Time.deltaTime);
-        else
-            if (xSpeed != 0)
-            xSpeed = Mathf.Lerp(xSpeed, x * maxXSpeed, deceleration * Time.deltaTime);
+        else if (xSpeed != 0)
+            xSpeed = Mathf.Lerp(xSpeed, 0, deceleration * Time.deltaTime);
 
         if (z != 0)
             zSpeed = Mathf.Lerp(zSpeed, z * maxZSpeed, acceleration * Time.deltaTime);
-        else
-            if (zSpeed != 0)
-            zSpeed = Mathf.Lerp(zSpeed, z * maxZSpeed, deceleration * Time.deltaTime);
+        else if (zSpeed != 0)
+            zSpeed = Mathf.Lerp(zSpeed, 0, deceleration * Time.deltaTime);
 
         V = new Vector3(x, 0, z).normalized;
-        V.x *= xSpeed < 0 ? -xSpeed : xSpeed;
-        V.z *= zSpeed < 0 ? -zSpeed : zSpeed;
+        V.x *= Mathf.Abs(xSpeed);
+        V.z *= Mathf.Abs(zSpeed);
 
         V = transform.TransformDirection(V);
 
@@ -148,37 +80,75 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.5f); // Проверяем, на земле ли игрок
+
+        if (isGrounded)
         {
-            if (isGrounded) // Обычный прыжок
+            jumpCount = 0; // Сбрасываем счётчик прыжков
+        }
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            if (isGrounded || jumpCount < maxJumps)
             {
-                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                isGrounded = false; // Игрок больше не на земле
-            }
-            else if (IsTouchingWall()) // Прыжок от стены
-            {
-                Vector3 wallJumpDirection = new Vector3(-transform.forward.x, 1, -transform.forward.z).normalized;
-                rb.AddForce(wallJumpDirection * wallJumpForce, ForceMode.Impulse);
+                rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+                jumpCount++;
             }
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void HandleDash()
     {
-        if (collision.gameObject.CompareTag("Ground")) // Проверяем столкновение с землей
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && !isDashing)
         {
-            isGrounded = true; // Игрок снова на земле
+            StartCoroutine(Dash());
         }
     }
 
-    private bool IsTouchingWall()
+    IEnumerator Dash()
     {
-        RaycastHit hit;
+        canDash = false;
+        isDashing = true;
 
-        // Проверяем наличие стены слева и справа
-        return Physics.Raycast(transform.position, transform.right, out hit, 1f) ||
-               Physics.Raycast(transform.position, -transform.right, out hit, 1f) ||
-               Physics.Raycast(transform.position, transform.forward, out hit, 1f) ||
-               Physics.Raycast(transform.position, -transform.forward, out hit, 1f);
+        Vector3 dashDirection;
+
+        // Если нажат `Ctrl`, делаем дэш вниз, иначе — в направлении движения
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            dashDirection = Vector3.down;
+        }
+        else
+        {
+            dashDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
+            if (dashDirection == Vector3.zero)
+            {
+                dashDirection = transform.forward;
+            }
+            else
+            {
+                dashDirection = transform.TransformDirection(dashDirection);
+            }
+        }
+
+        Vector3 start = transform.position;
+        Vector3 dashTarget = transform.position + dashDirection * dashDistance;
+
+        // Проверка столкновения на пути рывка
+        if (Physics.Raycast(transform.position, dashDirection, out RaycastHit hit, dashDistance))
+        {
+            dashTarget = hit.point;
+        }
+
+        float dashStartTime = Time.time;
+
+        while (Time.time < dashStartTime + dashDuration)
+        {
+            rb.MovePosition(Vector3.Lerp(start, dashTarget, (Time.time - dashStartTime) / dashDuration));
+            yield return null;
+        }
+
+        isDashing = false;
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
     }
 }
