@@ -1188,10 +1188,10 @@ MonoBehaviour:
   acceleration: 10
   deceleration: 10
   jumpForce: 5
-  maxJumps: 2
-  dashDistance: 5
+  maxJumps: 1
+  dashDistance: 14
   dashDuration: 0.2
-  dashCooldown: 1
+  dashCooldown: 0.2
 --- !u!54 &2025040292
 Rigidbody:
   m_ObjectHideFlags: 0
