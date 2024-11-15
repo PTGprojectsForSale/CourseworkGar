@@ -15,16 +15,9 @@ public class CMachinegun : CWeapon
         machineugnLogic = GetComponent<MachinegunLogic>();
         tracerSystem = GetComponent<TracerSystem>();
     }
-    public override void fire(Ammunition ammunition)
+    public override void fire()
     {
-        base.fire(ammunition);
-
         tracerSystem.createTracer(firePoint.position, firePoint.forward);
         machineugnLogic.shot(firePoint, damage);
-    }
-
-    public override WeaponTypes getWeaponType()
-    {
-        return WeaponTypes.Mashinegun;
     }
 }

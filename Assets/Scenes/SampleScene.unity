@@ -531,16 +531,78 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11400008, guid: ba53288090e3a654aa24453a4c4d3cb6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100002, guid: ba53288090e3a654aa24453a4c4d3cb6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 849713283}
+    - targetCorrespondingSourceObject: {fileID: 100002, guid: ba53288090e3a654aa24453a4c4d3cb6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 849713282}
+    - targetCorrespondingSourceObject: {fileID: 100002, guid: ba53288090e3a654aa24453a4c4d3cb6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 849713281}
   m_SourcePrefab: {fileID: 100100000, guid: ba53288090e3a654aa24453a4c4d3cb6, type: 3}
 --- !u!4 &849713279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: ba53288090e3a654aa24453a4c4d3cb6, type: 3}
   m_PrefabInstance: {fileID: 849713278}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &849713280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: ba53288090e3a654aa24453a4c4d3cb6, type: 3}
+  m_PrefabInstance: {fileID: 849713278}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &849713281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849713280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8da3f74d3e87fa44fbbbac569436a1ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 0}
+  fireRate: 0
+  damage: 0
+  canFire: 1
+  weaponEffect: {fileID: 0}
+--- !u!114 &849713282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849713280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f18218ca21798e409f2c2620bcaf7cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &849713283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849713280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e7639c12ef36d4b88c84a533cafa5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tracerPrefab: {fileID: 480056458275797383, guid: 795cffe66b3d8f64fb753506b5834fec, type: 3}
+  poolSize: 5
+  maxPoolSize: 10
 --- !u!1001 &857803065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -678,13 +740,74 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1947189329703348, guid: b12227c752b72334b9c3d0f15986f1c2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 915604669}
+    - targetCorrespondingSourceObject: {fileID: 1947189329703348, guid: b12227c752b72334b9c3d0f15986f1c2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 915604668}
+    - targetCorrespondingSourceObject: {fileID: 1947189329703348, guid: b12227c752b72334b9c3d0f15986f1c2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 915604667}
   m_SourcePrefab: {fileID: 100100000, guid: b12227c752b72334b9c3d0f15986f1c2, type: 3}
 --- !u!4 &915604665 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4977564265705686, guid: b12227c752b72334b9c3d0f15986f1c2, type: 3}
   m_PrefabInstance: {fileID: 915604664}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &915604666 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1947189329703348, guid: b12227c752b72334b9c3d0f15986f1c2, type: 3}
+  m_PrefabInstance: {fileID: 915604664}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &915604667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915604666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 089b06eaf8a8982419c22feb14c2c6f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 0}
+  fireRate: 0
+  damage: 0
+  canFire: 1
+  weaponEffect: {fileID: 0}
+--- !u!114 &915604668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915604666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26453e26f3f636141ab5ff4730ce0e5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &915604669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915604666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e7639c12ef36d4b88c84a533cafa5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tracerPrefab: {fileID: 480056458275797383, guid: 795cffe66b3d8f64fb753506b5834fec, type: 3}
+  poolSize: 10
+  maxPoolSize: 15
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,13 +1565,76 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100002, guid: e870f12990348ad4b94b4cdb8f09b7a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1926854407}
+    - targetCorrespondingSourceObject: {fileID: 100002, guid: e870f12990348ad4b94b4cdb8f09b7a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1926854406}
+    - targetCorrespondingSourceObject: {fileID: 100002, guid: e870f12990348ad4b94b4cdb8f09b7a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1926854405}
   m_SourcePrefab: {fileID: 100100000, guid: e870f12990348ad4b94b4cdb8f09b7a0, type: 3}
 --- !u!4 &1926854403 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: e870f12990348ad4b94b4cdb8f09b7a0, type: 3}
   m_PrefabInstance: {fileID: 1926854402}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1926854404 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: e870f12990348ad4b94b4cdb8f09b7a0, type: 3}
+  m_PrefabInstance: {fileID: 1926854402}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1926854405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926854404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2b58bf0fa4a46147bd54cf773c14b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 0}
+  fireRate: 0
+  damage: 0
+  canFire: 1
+  weaponEffect: {fileID: 0}
+--- !u!114 &1926854406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926854404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1789a34e1df7b6641b85282b1d2368ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy:
+    serializedVersion: 2
+    m_Bits: 64
+  buckshot: 8
+  spread: 40
+--- !u!114 &1926854407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926854404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e7639c12ef36d4b88c84a533cafa5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tracerPrefab: {fileID: 480056458275797383, guid: 795cffe66b3d8f64fb753506b5834fec, type: 3}
+  poolSize: 20
+  maxPoolSize: 40
 --- !u!1 &1949530386
 GameObject:
   m_ObjectHideFlags: 0
