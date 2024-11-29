@@ -5,6 +5,14 @@ using UnityEngine;
 public class CursorLock : MonoBehaviour
 {
     public bool cursorLock = true;
+
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        cursorLock = true;
+    }
+
     void Update()
     {
         if (cursorLock)
