@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeaponScr : MonoBehaviour
 {
+    public Ammunition ammunition;
     CWeapon currentWeapon;
     bool isFiring = false;
 
@@ -16,8 +17,9 @@ public class WeaponScr : MonoBehaviour
     public void fireStart()
     {
         isFiring = true;
-        if(currentWeapon.weaponEffect != null && currentWeapon.canFire)
+        if(currentWeapon != null && currentWeapon.weaponEffect != null && currentWeapon.canFire)
             currentWeapon.weaponEffect.Play();
+
     }
     
     public void fireEnd()
@@ -32,10 +34,17 @@ public class WeaponScr : MonoBehaviour
     {
         if(currentWeapon != null)
             if(isFiring)
-                if (currentWeapon.canFire)
-                    if (currentWeapon.weaponEffect != null)
-                        if (currentWeapon.weaponEffect.isPlaying == false)
-                            currentWeapon.weaponEffect.Play();
+                if (ammunition.checkAmmo(currentWeapon.getWeaponType()))
+                {
+                    if (currentWeapon.canFire)
+                    {
+                        currentWeapon.fire(ammunition);
+
+                        if (currentWeapon.weaponEffect != null)
+                            if (currentWeapon.weaponEffect.isPlaying == false)
+                                currentWeapon.weaponEffect.Play();
+                    }
+                }
                 else
                     if (currentWeapon != null)
                         if (currentWeapon.weaponEffect != null)

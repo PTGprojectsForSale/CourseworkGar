@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(TracerSystem))]
 [RequireComponent(typeof(RevolverLogic))]
 
-public class CRevolver : CWeapon
+public class CRevolver : MonoBehaviour
 {
     TracerSystem tracerSystem;
     RevolverLogic revolverLogic;
@@ -15,9 +15,9 @@ public class CRevolver : CWeapon
         revolverLogic = GetComponent<RevolverLogic>();
         tracerSystem = GetComponent<TracerSystem>();
     }
-    public override void fire()
-    {
-        tracerSystem.createTracer(firePoint.position, firePoint.forward);
-        revolverLogic.shot(firePoint, damage);
-    }
+    //public override void fire()
+    //{
+    //    tracerSystem.createTracer(firePoint.position, firePoint.forward);
+    //    revolverLogic.shot(firePoint, damage);
+    //}
 }
