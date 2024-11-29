@@ -326,7 +326,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: dead
+  - m_Name: death
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -420,7 +420,7 @@ AnimatorStateMachine:
     m_Position: {x: -40, y: 740, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6050893212727185240}
-    m_Position: {x: 390, y: 210, z: 0}
+    m_Position: {x: 400, y: 320, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1255262991079271062}
     m_Position: {x: 170, y: 670, z: 0}
@@ -435,13 +435,13 @@ AnimatorStateMachine:
     m_Position: {x: 590, y: 740, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7696606716666137217}
-    m_Position: {x: 210, y: -40, z: 0}
+    m_Position: {x: 220, y: 70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5888084243496467012}
     m_Position: {x: -40, y: 670, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7679276334864764599}
-    m_Position: {x: 30, y: 210, z: 0}
+    m_Position: {x: 40, y: 320, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8404554009910420047}
     m_Position: {x: 380, y: 620, z: 0}
@@ -456,7 +456,7 @@ AnimatorStateMachine:
     m_Position: {x: 170, y: 570, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3576345439530607317}
-    m_Position: {x: 210, y: 110, z: 0}
+    m_Position: {x: 220, y: 220, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5121603365335755795}
     m_Position: {x: 170, y: 620, z: 0}
@@ -466,9 +466,9 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 410, y: 50, z: 0}
-  m_EntryPosition: {x: 30, y: 50, z: 0}
-  m_ExitPosition: {x: -50, y: 10, z: 0}
+  m_AnyStatePosition: {x: 420, y: 160, z: 0}
+  m_EntryPosition: {x: 40, y: 160, z: 0}
+  m_ExitPosition: {x: -40, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -7696606716666137217}
 --- !u!1101 &1671472248107350909
@@ -480,7 +480,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: dead
+    m_ConditionEvent: death
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6050893212727185240}

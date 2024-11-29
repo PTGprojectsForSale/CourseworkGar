@@ -16,7 +16,6 @@ public abstract class AbstractEnemy : MonoBehaviour, IEnemy
     NavMeshAgent agent;
     Animator animator;
 
-    protected bool stunned = false;
     protected bool dead = false;
 
     public Transform Player
@@ -55,7 +54,7 @@ public abstract class AbstractEnemy : MonoBehaviour, IEnemy
     public virtual void moveTo(Vector3 point)
     {
         agent.SetDestination(point);
-        animator.SetFloat("speed", agent.velocity.magnitude);
+        animator.SetInteger("state", 0);
     }
     public virtual void rotateTo(Vector3 point)
     {
@@ -64,16 +63,7 @@ public abstract class AbstractEnemy : MonoBehaviour, IEnemy
     }
     public virtual void attack(bool state)
     {
-        animator.SetBool("attack", state);
-    }
-    public virtual void stunBegin()
-    {
-        stunned = true;
-        animator.SetTrigger("getHit");
-    }
-    public virtual void stunEnd()
-    {
-        stunned= false;
+        animator.SetInteger("state", 1);
     }
     public virtual void stop(bool state)
     {
@@ -97,7 +87,7 @@ public abstract class AbstractEnemy : MonoBehaviour, IEnemy
     }
     IEnumerator despawn()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
 
         Destroy(gameObject);
     }

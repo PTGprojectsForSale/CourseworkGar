@@ -2020,7 +2020,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2025040287}
-  - component: {fileID: 2025040286}
+  - component: {fileID: 2025040300}
   - component: {fileID: 2025040292}
   - component: {fileID: 2025040295}
   - component: {fileID: 2025040293}
@@ -2036,29 +2036,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &2025040286
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2025040285}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2.1872709
-  m_Direction: 1
-  m_Center: {x: 0, y: -0.09373176, z: 0}
 --- !u!4 &2025040287
 Transform:
   m_ObjectHideFlags: 0
@@ -2217,6 +2194,27 @@ MonoBehaviour:
   weaponSelector: {fileID: 2025040298}
   weaponScript: {fileID: 2025040297}
   numberOfWeapons: 3
+--- !u!65 &2025040300
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025040285}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2.002761, z: 1}
+  m_Center: {x: 0, y: -0.08502957, z: 0}
 --- !u!1 &2103362890
 GameObject:
   m_ObjectHideFlags: 0

@@ -660,7 +660,7 @@ MonoBehaviour:
   enemyHP: {fileID: 6165298700223590057}
   updatesPerSecond: 10
   rotationSpeed: 120
-  attackRange: 2
+  attackRange: 10
   damage: 0
 --- !u!114 &6165298700223590057
 MonoBehaviour:

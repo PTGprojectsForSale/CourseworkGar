@@ -9,8 +9,6 @@ public interface IEnemy
     public void rotateTo(Vector3 point);
     public void attack(bool state);
     public void death();
-    public void stunBegin();
-    public void stunEnd();
     public void stop(bool state);
     public void positionAndRotation(Vector3 spawnPosition, Quaternion spawnRotation);
 }

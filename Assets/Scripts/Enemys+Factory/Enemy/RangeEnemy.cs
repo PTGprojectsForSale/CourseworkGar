@@ -33,28 +33,21 @@ public class RangeEnemy : AbstractEnemy
     public override void updateState()
     {
         if (dead == true) return;
-
-        if (stunned == true)
+        
+        if (Vector3.Angle(transform.forward, player.position - transform.position) > 20)
         {
-            stateMachine?.setState(stunnedState);
+            stateMachine?.setState(rotateState);
+        }
+        else if (Vector3.Distance(transform.position, player.position) > attackRange)
+        {
+            stateMachine?.setState(runState);
+        }
+        else if (Vector3.Angle(transform.forward, player.position - transform.position) > 10)
+        {
+            stateMachine?.setState(rotateState);
         }
         else
-        {
-            if (Vector3.Angle(transform.forward, player.position - transform.position) > 20)
-            {
-                stateMachine?.setState(rotateState);
-            }
-            else if (Vector3.Distance(transform.position, player.position) > attackRange)
-            {
-                stateMachine?.setState(runState);
-            }
-            else if (Vector3.Angle(transform.forward, player.position - transform.position) > 10)
-            {
-                stateMachine?.setState(rotateState);
-            }
-            else
-                stateMachine?.setState(attackState);
-        }
+            stateMachine?.setState(attackState);
 
         stateMachine?.update();
     }
