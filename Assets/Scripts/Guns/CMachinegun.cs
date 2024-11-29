@@ -17,7 +17,15 @@ public class CMachinegun : CWeapon
     }
     public override void fire()
     {
-        tracerSystem.createTracer(firePoint.position, firePoint.forward);
+        float spread = 5f;
+
+        var angle_x = Random.Range(-spread / 2, spread / 2);
+        var angle_y = Random.Range(-spread / 2, spread / 2);
+        var angle_z = Random.Range(-spread / 2, spread / 2);
+        var quaternion = Quaternion.Euler(angle_x, angle_y, angle_z);
+        Vector3 dir = quaternion * firePoint.forward;
+
+        tracerSystem.createTracer(firePoint.position, dir);
         machineugnLogic.shot(firePoint, damage);
     }
 
