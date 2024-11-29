@@ -16,10 +16,8 @@ public class CShotgun : CWeapon
         shotgunLogic = GetComponent<ShotgunLogic>();
     }
 
-    public override void fire(Ammunition ammunition)
+    public override void fire()
     {
-        base.fire(ammunition);
-
         List<Vector3> directions = shotgunLogic.shot(firePoint, damage);
 
         foreach (Vector3 direction in directions)

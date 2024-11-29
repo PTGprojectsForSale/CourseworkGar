@@ -8,7 +8,7 @@ public class WeaponSelector : MonoBehaviour
 
     int selectedWeaponIndex = 0;
 
-    void Start() => hideWeapon();
+    void Start() => selectWeaponByIndex(selectedWeaponIndex);
     public CWeapon selectNextWeapon()
     {
         hideWeapon();

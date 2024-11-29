@@ -17,7 +17,7 @@ public class ShotgunLogic : MonoBehaviour
         for(int i = 0; i < buckshot; i++)
         {
             var angle = Random.Range(-spread / 2, spread / 2);
-            var quaternion = Quaternion.Euler(0, angle, 0);
+            var quaternion = Quaternion.Euler(angle, angle, angle);
             var newDirection = quaternion * firePoint.forward;
 
             directions.Add(newDirection);

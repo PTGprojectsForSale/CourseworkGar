@@ -16,9 +16,6 @@ public class Health : MonoBehaviour
     public UnityEvent onDeath;
     public UnityEvent onHitTaken;
 
-    private Coroutine burnCoroutine;
-    public ParticleSystem burning;
-
     private void Start() => onHealthChange?.Invoke((int)currentHealth, maxHealth);
  
     public bool changeHealth(int amount)
@@ -57,40 +54,6 @@ public class Health : MonoBehaviour
             onDeath?.Invoke();
             
             spawnOnDeath?.Invoke(transform.position);
-        }
-    }
-
-    public void ApplyBurnEffect(float damagePerSecond, float duration)
-    {
-        // Если враг уже горит, перезапускаем эффект
-        if (burnCoroutine != null)
-        {
-            StopCoroutine(burnCoroutine);
-        }
-        burnCoroutine = StartCoroutine(BurnEffect(damagePerSecond, duration));
-        burning.Play();
-    }
-
-    private IEnumerator BurnEffect(float damagePerSecond, float duration)
-    {
-        float elapsedTime = 0f;
-
-        while (elapsedTime < duration)
-        {
-            currentHealth -= damagePerSecond * Time.deltaTime;
-            elapsedTime += Time.deltaTime;
-
-            if (currentHealth < 0)
-                currentHealth = 0;
-
-            if (currentHealth == 0)
-            {
-                onDeath?.Invoke();
-                spawnOnDeath?.Invoke(transform.position);
-                yield break; 
-            }
-
-            yield return null;
         }
     }
 }
