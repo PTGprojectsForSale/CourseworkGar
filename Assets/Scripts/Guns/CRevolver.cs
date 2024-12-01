@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 [RequireComponent(typeof(TracerSystem))]
@@ -8,21 +9,18 @@ using UnityEngine;
 public class CRevolver : CWeapon
 {
     TracerSystem tracerSystem;
-    RevolverLogic machineugnLogic;
+    RevolverLogic RevolverLogic;
 
     void Start()
     {
-        machineugnLogic = GetComponent<RevolverLogic>();
+        RevolverLogic = GetComponent<RevolverLogic>();
         tracerSystem = GetComponent<TracerSystem>();
     }
     public override void fire()
     {
-        tracerSystem.createTracer(firePoint.position, firePoint.forward);
-        machineugnLogic.shot(firePoint, damage);
-    }
+        base.fire();
 
-    public override WeaponTypes getWeaponType()
-    {
-        return WeaponTypes.Mashinegun;
+        tracerSystem.createTracer(firePoint.position);
+        RevolverLogic.shot(firePoint, damage);
     }
 }

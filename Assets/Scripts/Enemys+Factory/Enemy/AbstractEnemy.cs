@@ -76,18 +76,20 @@ public abstract class AbstractEnemy : MonoBehaviour, IEnemy
     }
     public virtual void death()
     {
+        Debug.Log("death");
         dead = true;
         animator.SetTrigger("death");
         stop(true);
 
-        ScoreScr scorePnl = GameObject.FindWithTag("scorePnl").transform.GetComponent<ScoreScr>();
-        scorePnl.scoreUp();
+        //ScoreScr scorePnl = GameObject.FindWithTag("scorePnl").transform.GetComponent<ScoreScr>();
+        //if (scorePnl != null) 
+        //    scorePnl.scoreUp();
 
         StartCoroutine(despawn());
     }
     IEnumerator despawn()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3.5f);
 
         Destroy(gameObject);
     }

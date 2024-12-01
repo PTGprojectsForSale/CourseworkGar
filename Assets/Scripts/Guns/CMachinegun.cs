@@ -17,6 +17,8 @@ public class CMachinegun : CWeapon
     }
     public override void fire()
     {
+        base.fire();
+
         float spread = 5f;
 
         var angle_x = Random.Range(-spread / 2, spread / 2);
@@ -27,10 +29,5 @@ public class CMachinegun : CWeapon
 
         tracerSystem.createTracer(firePoint.position, dir);
         machineugnLogic.shot(firePoint, damage);
-    }
-
-    public override WeaponTypes getWeaponType()
-    {
-        return WeaponTypes.Mashinegun;
     }
 }

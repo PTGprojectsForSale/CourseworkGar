@@ -5,7 +5,7 @@ using UnityEngine;
 public class MeleeEnemy : AbstractEnemy
 {
     [Range(0.1f, 10)]
-    public float attackRange = 2;
+    public float attackRange;
 
     [Range(1, 100)]
     public int damage;
@@ -30,7 +30,6 @@ public class MeleeEnemy : AbstractEnemy
     public override void updateState()
     {
         if (dead == true) return;
-        
        
         if (Vector3.Angle(transform.forward, player.position - transform.position) > 20)
         {
@@ -44,7 +43,7 @@ public class MeleeEnemy : AbstractEnemy
         {
             stateMachine?.setState(rotateState);
         }
-        else
+        else if (Vector3.Distance(transform.position, player.position) <= attackRange)
             stateMachine?.setState(attackState);
 
         stateMachine?.update();

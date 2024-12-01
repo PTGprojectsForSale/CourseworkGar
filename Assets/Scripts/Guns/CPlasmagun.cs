@@ -17,9 +17,4 @@ public class CPlasmagun : CWeapon
         //tracerSystem.createTracer(firePoint.position, firePoint.forward);
         plasmagunLogic.shot(firePoint, damage);
     }
-
-    public override WeaponTypes getWeaponType()
-    {
-        return WeaponTypes.Plasmagun;
-    }
 }

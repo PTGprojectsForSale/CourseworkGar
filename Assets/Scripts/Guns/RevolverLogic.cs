@@ -11,7 +11,7 @@ public class RevolverLogic : MonoBehaviour
     {
         RaycastHit[] hits;
 
-        Ray ray = new Ray(firePoint.position, firePoint.forward);
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         hits = Physics.RaycastAll(ray, 100f, enemy);
 
         System.Array.Sort(hits, (x, y) => x.distance.CompareTo(y.distance));

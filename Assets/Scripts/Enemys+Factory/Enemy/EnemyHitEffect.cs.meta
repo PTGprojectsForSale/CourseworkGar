@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 13e7639c12ef36d4b88c84a533cafa5c
+guid: 469be79a2bd19bd42873091926e7b709
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - tracerPrefab: {fileID: 480056458275797383, guid: 795cffe66b3d8f64fb753506b5834fec, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

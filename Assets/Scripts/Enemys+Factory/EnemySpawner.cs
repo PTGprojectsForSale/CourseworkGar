@@ -13,6 +13,8 @@ public class EnemySpawner : MonoBehaviour
     public float spawnIntervalMax = 10f;
     public float spawnIntervalMin = 1.5f;
 
+    public bool spawning = true;
+
     private void Start() 
     {
         float probabilitySum = 0;
@@ -57,10 +59,13 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        spawnRandomEnemy();
+        if (spawning)
+        {
+            spawnRandomEnemy();
 
-        spawnIntervalMax = Mathf.Max(1f, spawnIntervalMax - 0.05f);
-        CancelInvoke(nameof(SpawnEnemy));
-        InvokeRepeating(nameof(SpawnEnemy), spawnIntervalMin, spawnIntervalMax);
+            spawnIntervalMax = Mathf.Max(1f, spawnIntervalMax - 0.05f);
+            CancelInvoke(nameof(SpawnEnemy));
+            InvokeRepeating(nameof(SpawnEnemy), spawnIntervalMin, spawnIntervalMax);
+        }
     }
 }

@@ -16,7 +16,7 @@ public class WeaponScr : MonoBehaviour
     public void fireStart()
     {
         isFiring = true;
-        if(currentWeapon != null && currentWeapon.weaponEffect != null && currentWeapon.canFire)
+        if(currentWeapon.weaponEffect != null && currentWeapon.canFire)
             currentWeapon.weaponEffect.Play();
 
     }
@@ -32,17 +32,13 @@ public class WeaponScr : MonoBehaviour
     void Update()
     {
         if(currentWeapon != null)
-            if(isFiring)
-                if (currentWeapon.canFire)
-                {
-                    currentWeapon.fire();
+            if (currentWeapon.canFire && isFiring)
+            {
+                if (currentWeapon.weaponEffect != null)
+                    if (currentWeapon.weaponEffect.isPlaying == false)
+                        currentWeapon.weaponEffect.Play();
 
-                    if (currentWeapon.weaponEffect != null)
-                        if (currentWeapon.weaponEffect.isPlaying == false)
-                            currentWeapon.weaponEffect.Play();
-                }
-                if (currentWeapon != null)
-                    if (currentWeapon.weaponEffect != null)
-                        currentWeapon.weaponEffect.Stop();
+                currentWeapon.fire();
+            }
     }
 }
