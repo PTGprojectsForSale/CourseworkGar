@@ -30,10 +30,14 @@ public class MeleeEnemy : AbstractEnemy
     public override void updateState()
     {
         if (dead == true) return;
-       
+
         if (Vector3.Angle(transform.forward, player.position - transform.position) > 20)
         {
             stateMachine?.setState(rotateState);
+        }
+        else if (Vector3.Distance(transform.position, player.position) <= attackRange)
+        {
+            stateMachine?.setState(attackState);
         }
         else if (Vector3.Distance(transform.position, player.position) > attackRange)
         {
@@ -43,8 +47,7 @@ public class MeleeEnemy : AbstractEnemy
         {
             stateMachine?.setState(rotateState);
         }
-        else if (Vector3.Distance(transform.position, player.position) <= attackRange)
-            stateMachine?.setState(attackState);
+
 
         stateMachine?.update();
     }

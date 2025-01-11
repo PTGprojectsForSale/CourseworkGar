@@ -56,6 +56,7 @@ public class RangeEnemy : AbstractEnemy
     {
         if (Vector3.Distance(transform.position, player.position) <= attackRange)
         {
+            shotPoint.LookAt(player);
             Instantiate(enemyProjectile, shotPoint.position, shotPoint.rotation);
         }
     }

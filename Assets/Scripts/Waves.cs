@@ -21,8 +21,6 @@ public class Waves : MonoBehaviour
         {
             Transform en = enemyCrowds[num].GetChild(i);
             
-            Debug.Log(en.name);
-
             enemyFactory = enemyFactories[int.Parse(en.name)-1];
         
             IEnemy enemy = enemyFactory.getEnemy();

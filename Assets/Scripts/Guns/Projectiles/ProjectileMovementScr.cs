@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ProjectileMovementScr : MonoBehaviour
 {
@@ -24,7 +25,9 @@ public class ProjectileMovementScr : MonoBehaviour
         if (scale)
             sCol.transform.localScale *= 1.01f;
 
-        rb.position += transform.forward * moveSpeed * Time.deltaTime;
+        //rb.position += transform.forward * moveSpeed * Time.deltaTime;
+
+        transform.position += transform.forward * moveSpeed * Time.deltaTime;
 
         lifeTime -= Time.deltaTime;
         if (lifeTime < 0)

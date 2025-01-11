@@ -398,7 +398,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -421,7 +421,7 @@ MonoBehaviour:
   enemyHP: {fileID: 2070341356411418843}
   updatesPerSecond: 10
   rotationSpeed: 120
-  attackRange: 5
+  attackRange: 3
   damage: 10
 --- !u!114 &2070341356411418843
 MonoBehaviour:
@@ -495,7 +495,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1401632958607563537}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74278e189f1697b409317cf118b775e3, type: 3}
   m_Name: 

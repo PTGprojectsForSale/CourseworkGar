@@ -76,7 +76,6 @@ public abstract class AbstractEnemy : MonoBehaviour, IEnemy
     }
     public virtual void death()
     {
-        Debug.Log("death");
         dead = true;
         animator.SetTrigger("death");
         stop(true);
