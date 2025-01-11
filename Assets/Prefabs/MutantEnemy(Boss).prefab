@@ -233,9 +233,6 @@ PrefabInstance:
       addedObject: {fileID: 5304873126184717108}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f5f2336a80df27a42a8daf69975796c9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7947735131561346388}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f5f2336a80df27a42a8daf69975796c9, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2737280602266808339}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f5f2336a80df27a42a8daf69975796c9, type: 3}
       insertIndex: -1
@@ -249,6 +246,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f5f2336a80df27a42a8daf69975796c9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8347102419916081750}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f5f2336a80df27a42a8daf69975796c9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7086325206584424252}
   m_SourcePrefab: {fileID: 100100000, guid: f5f2336a80df27a42a8daf69975796c9, type: 3}
 --- !u!137 &1706760133695414109 stripped
 SkinnedMeshRenderer:
@@ -283,33 +283,6 @@ CapsuleCollider:
   m_Height: 1.8862123
   m_Direction: 1
   m_Center: {x: 0, y: 0.93786144, z: 0.14407732}
---- !u!54 &7947735131561346388
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6234828968156141518}
-  serializedVersion: 4
-  m_Mass: 120
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
 --- !u!95 &2737280602266808339
 Animator:
   serializedVersion: 5
@@ -435,3 +408,17 @@ MonoBehaviour:
   enemyRenderer: {fileID: 1706760133695414109}
   hitColor: {r: 1, g: 0, b: 0, a: 1}
   effectDuration: 0.3
+--- !u!114 &7086325206584424252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6234828968156141518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74278e189f1697b409317cf118b775e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravityForce: 9.81
+  distToGround: 0.11
