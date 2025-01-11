@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] List<EnemyProbability> enemyFactoriesWithProbs = new List<EnemyProbability>();
+    [SerializeField] 
+    List<EnemyProbability> enemyFactoriesWithProbs = new List<EnemyProbability>();
     List<EnemyFactory> enemyFactories = new List<EnemyFactory>();
 
     EnemyFactory enemyFactory;
