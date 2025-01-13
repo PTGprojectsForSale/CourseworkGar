@@ -13,12 +13,12 @@ public class PlayerMovement : MonoBehaviour
     public float deceleration = 5f;
 
     [Range(0.1f, 10f)]
-    public float jumpForce = 5f; // Сила прыжка
-    public int maxJumps = 2; // Количество прыжков (для дабл-джампа)
+    public float jumpForce = 5f; // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+    public int maxJumps = 2; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅпїЅ)
 
-    public float dashDistance = 5f; // Дистанция рывка
-    public float dashDuration = 0.2f; // Длительность рывка
-    public float dashCooldown = 1f; // Перезарядка рывка
+    public float dashDistance = 5f; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+    public float dashDuration = 0.2f; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+    public float dashCooldown = 1f; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
     private float maxXSpeed;
     private float xSpeed = 0;
@@ -28,10 +28,10 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private Vector3 V;
 
-    private bool isGrounded; // Проверка на земле
-    private int jumpCount; // Счётчик прыжков
-    private bool canDash = true; // Доступность рывка
-    private bool isDashing = false; // Флаг выполнения рывка
+    private bool isGrounded; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+    private int jumpCount; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    private bool canDash = true; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+    private bool isDashing = false; // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
     void Start()
     {
@@ -72,26 +72,26 @@ public class PlayerMovement : MonoBehaviour
 
         V = transform.TransformDirection(V);
 
-        // Устанавливаем вертикальную скорость
-        V.y = rb.velocity.y;
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+        V.y = rb.linearVelocity.y;
 
-        rb.velocity = V;
+        rb.linearVelocity = V;
     }
 
     void HandleJump()
     {
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.5f); // Проверяем, на земле ли игрок
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.5f); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
         if (isGrounded)
         {
-            jumpCount = 0; // Сбрасываем счётчик прыжков
+            jumpCount = 0; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         }
 
         if (Input.GetButtonDown("Jump"))
         {
             if (isGrounded || jumpCount < maxJumps)
             {
-                rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+                rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
                 jumpCount++;
             }
         }
@@ -112,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 dashDirection;
 
-        // Если нажат `Ctrl`, делаем дэш вниз, иначе — в направлении движения
+        // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ `Ctrl`, пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         if (Input.GetKey(KeyCode.LeftControl))
         {
             dashDirection = Vector3.down;
@@ -133,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 start = transform.position;
         Vector3 dashTarget = transform.position + dashDirection * dashDistance;
 
-        // Проверка столкновения на пути рывка
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         if (Physics.Raycast(transform.position, dashDirection, out RaycastHit hit, dashDistance))
         {
             dashTarget = hit.point;
