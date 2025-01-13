@@ -44,8 +44,11 @@ public class Health : MonoBehaviour
 
         currentHealth = Mathf.FloorToInt(currentHealth - amount);
 
-        if(currentHealth < 0)
+        if (currentHealth < 0)
+        {
             currentHealth = 0;
+            transform.GetComponent<Collider>().enabled = false;
+        }
 
         onHealthChange?.Invoke((int)currentHealth, maxHealth);
 
