@@ -9,7 +9,6 @@ public class Waves : MonoBehaviour
     [SerializeField]
     public List<EnemyFactory> enemyFactories;
     public Transform[] enemyCrowds;
-
     
     EnemyFactory enemyFactory;
     public Transform player;
