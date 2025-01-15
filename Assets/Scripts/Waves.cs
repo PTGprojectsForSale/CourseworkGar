@@ -19,13 +19,13 @@ public class Waves : MonoBehaviour
         num -= 1;
         for (int i = 0; i < enemyCrowds[num].childCount; i++)
         {
-            Transform en = enemyCrowds[num].GetChild(i);
+            Transform enPos = enemyCrowds[num].GetChild(i);
             
-            enemyFactory = enemyFactories[int.Parse(en.name)-1];
+            enemyFactory = enemyFactories[int.Parse(enPos.name)-1];
         
             IEnemy enemy = enemyFactory.getEnemy();
 
-            enemy.positionAndRotation(en.position, Quaternion.identity);
+            enemy.positionAndRotation(enPos.position, Quaternion.identity);
 
             enemy.Player = player;
 
