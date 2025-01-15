@@ -80,9 +80,9 @@ public abstract class AbstractEnemy : MonoBehaviour, IEnemy
         animator.SetTrigger("death");
         stop(true);
 
-        //ScoreScr scorePnl = GameObject.FindWithTag("scorePnl").transform.GetComponent<ScoreScr>();
-        //if (scorePnl != null) 
-        //    scorePnl.scoreUp();
+        GameMngr gmMngr = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameMngr>();
+        if (gmMngr != null)
+            gmMngr.changeEnemiesCount();
 
         StartCoroutine(despawn());
     }

@@ -14,6 +14,11 @@ public class Activator : MonoBehaviour
             int numWave = int.Parse(transform.parent.name);
 
             waves.spawnWave(numWave);
+
+            GameMngr gmMngr = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameMngr>();
+            if (gmMngr != null)
+                gmMngr.changeWavesCount();
+
             Debug.Log(numWave + " Wave activated");
             gameObject.SetActive(false);
         }

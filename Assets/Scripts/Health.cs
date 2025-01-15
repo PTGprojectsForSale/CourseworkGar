@@ -40,6 +40,7 @@ public class Health : MonoBehaviour
     {
         if (currentHealth <= 0) return;
 
+
         onHitTaken?.Invoke();
 
         currentHealth = Mathf.FloorToInt(currentHealth - amount);
@@ -49,6 +50,10 @@ public class Health : MonoBehaviour
             currentHealth = 0;
             transform.GetComponent<Collider>().enabled = false;
         }
+
+        GameMngr gmMngr = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameMngr>();
+        if (gmMngr != null)
+            gmMngr.changeHP((int)currentHealth);
 
         onHealthChange?.Invoke((int)currentHealth, maxHealth);
 

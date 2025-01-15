@@ -5,12 +5,17 @@ public class GameMngr : MonoBehaviour
 {
     public Transform waves = null;
 
-    public TextMeshPro countWavesTxt;
-    public TextMeshPro countEnemiesTxt;
+    public TextMeshProUGUI countWavesTxt;
+    public TextMeshProUGUI countEnemiesTxt;
+    
     int countWaves = 0;
     int countEnemies = 0;
+    
+    int currCountWaves = 0;
+    int currCountEnemies = 0;
 
-
+    public TextMeshProUGUI playerHpTxt;
+    int playerHp;
 
     void Start()
     {
@@ -25,17 +30,30 @@ public class GameMngr : MonoBehaviour
         for (int i = 0; i < countWaves; i++)
             countEnemies += waves.GetChild(i).GetChild(1).childCount;
 
-        Debug.Log(countWaves);
-        Debug.Log(countEnemies);
+        updateCounts();
     }
 
-    public void changeWavesCount(int value)
+    void updateCounts()
     {
-
+        countWavesTxt.text = currCountWaves + "/" + countWaves;
+        countEnemiesTxt.text = currCountEnemies + "/" + countEnemies;
     }
 
-    public void changeEnemyCount(int value)
+    public void changeWavesCount()
     {
+        currCountWaves++;
+        updateCounts();
+    }
 
+    public void changeEnemiesCount()
+    {
+        currCountEnemies++;
+        updateCounts();
+    }
+
+    public void changeHP(int value)
+    {
+        playerHp = value;
+        playerHpTxt.text = playerHp.ToString();
     }
 }
