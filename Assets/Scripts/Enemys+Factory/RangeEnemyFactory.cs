@@ -12,4 +12,11 @@ public class RangeEnemyFactory : EnemyFactory
 
         return rangeEnemy.GetComponent<RangeEnemy>();
     }
+
+    public override IEnemy getEnemy(Transform parent)
+    {
+        GameObject rangeEnemy = Instantiate(rangeEnemyPrefab, parent);
+
+        return rangeEnemy.GetComponent<RangeEnemy>();
+    }
 }

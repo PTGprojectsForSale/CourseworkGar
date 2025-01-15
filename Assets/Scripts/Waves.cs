@@ -23,7 +23,7 @@ public class Waves : MonoBehaviour
             
             enemyFactory = enemyFactories[int.Parse(enPos.name)-1];
         
-            IEnemy enemy = enemyFactory.getEnemy();
+            IEnemy enemy = enemyFactory.getEnemy(enemyCrowds[num].parent.Find("enemys"));
 
             enemy.positionAndRotation(enPos.position, Quaternion.identity);
 

@@ -12,4 +12,10 @@ public class MeleeEnemyFactory : EnemyFactory
 
         return meleeEnemy.GetComponent<MeleeEnemy>();
     }
+    public override IEnemy getEnemy(Transform parent)
+    {
+        GameObject meleeEnemy = Instantiate(meleeEnemyPrefab, parent);
+
+        return meleeEnemy.GetComponent<MeleeEnemy>();
+    }
 }
