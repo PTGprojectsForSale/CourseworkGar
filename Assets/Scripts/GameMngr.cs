@@ -23,6 +23,8 @@ public class GameMngr : MonoBehaviour
 
     float time = 0;
 
+    public DoorAnim door;
+
     void Start()
     {
         if (waves == null)
@@ -48,6 +50,9 @@ public class GameMngr : MonoBehaviour
     {
         countWavesTxt.text = currCountWaves + "/" + countWaves;
         countEnemiesTxt.text = currCountEnemies + "/" + countEnemies;
+
+        if (currCountWaves == countWaves)
+            door.openDoor();
     }
 
     public void changeWavesCount()
