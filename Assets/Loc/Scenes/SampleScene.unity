@@ -2276,7 +2276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &464263444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12844,9 +12844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
-  onHealthChange:
-    m_PersistentCalls:
-      m_Calls: []
+  hp: {fileID: 682483425}
   spawnOnDeath:
     m_PersistentCalls:
       m_Calls: []

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,19 +11,19 @@ public class Health : MonoBehaviour
     [Range(1, 100)]
     [SerializeField] float currentHealth;
 
-    public UnityEvent<int, int> onHealthChange;
+    public TextMeshProUGUI hp;
 
     public UnityEvent <Vector3> spawnOnDeath;
     public UnityEvent onDeath;
     public UnityEvent onHitTaken;
 
-    private void Start() => onHealthChange?.Invoke((int)currentHealth, maxHealth);
- 
-    public bool changeHealth(int amount)
+    private void Start()
     {
-        if (currentHealth == maxHealth)
-            return false;
-
+        if (hp != null)
+            hp.text = ((int)currentHealth).ToString();
+    }
+    public bool changeHealth(int amount)
+    { 
         currentHealth += amount;
 
         if(currentHealth > maxHealth)
@@ -31,7 +32,7 @@ public class Health : MonoBehaviour
         if(currentHealth < 0)
             currentHealth = 0;
 
-        onHealthChange?.Invoke((int)currentHealth, maxHealth);
+        //onHealthChange?.Invoke((int)currentHealth);
 
         return true;
     }
@@ -51,11 +52,10 @@ public class Health : MonoBehaviour
             transform.GetComponent<Collider>().enabled = false;
         }
 
-        GameMngr gmMngr = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameMngr>();
-        if (gmMngr != null)
-            gmMngr.changeHP((int)currentHealth);
+        if (hp != null)
+            hp.text = ((int)currentHealth).ToString();
 
-        onHealthChange?.Invoke((int)currentHealth, maxHealth);
+        //onHealthChange?.Invoke((int)currentHealth);
 
         if (currentHealth <= 0)
         {
