@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class GranadeScr : MonoBehaviour
@@ -7,6 +8,7 @@ public class GranadeScr : MonoBehaviour
     public float throwForce = 10f;
 
     int amo = 3;
+    public TextMeshProUGUI grnsAmo;
 
     void Update()
     {
@@ -16,6 +18,7 @@ public class GranadeScr : MonoBehaviour
             {
                 ThrowGrenade();
                 amo--;
+                grnsAmo.text = amo.ToString();
             }
         }
     }
