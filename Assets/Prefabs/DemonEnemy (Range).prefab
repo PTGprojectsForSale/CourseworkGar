@@ -243,6 +243,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c3d73ba06daaeef40b556c623d33fc02, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1041781708020795772, guid: c3d73ba06daaeef40b556c623d33fc02, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -470,9 +474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   currentHealth: 20
-  onHealthChange:
-    m_PersistentCalls:
-      m_Calls: []
+  hp: {fileID: 0}
   spawnOnDeath:
     m_PersistentCalls:
       m_Calls: []

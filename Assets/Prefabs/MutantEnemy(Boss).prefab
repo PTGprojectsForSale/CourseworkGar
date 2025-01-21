@@ -168,6 +168,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f5f2336a80df27a42a8daf69975796c9, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1082271958561512970, guid: f5f2336a80df27a42a8daf69975796c9, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -285,7 +289,7 @@ CapsuleCollider:
   m_Center: {x: 0, y: 0.93786144, z: 0.14407732}
 --- !u!95 &2737280602266808339
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -299,6 +303,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -357,9 +362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
-  onHealthChange:
-    m_PersistentCalls:
-      m_Calls: []
+  hp: {fileID: 0}
   spawnOnDeath:
     m_PersistentCalls:
       m_Calls: []
