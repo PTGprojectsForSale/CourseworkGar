@@ -4708,6 +4708,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747615133}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &768281110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 768281111}
+  m_Layer: 0
+  m_Name: grenaTrhower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &768281111
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768281110}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.2376385, y: -0, z: -0, w: 0.9713537}
+  m_LocalPosition: {x: 0.34300008, y: -0.33899972, z: 0.74099976}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 963194228}
+  m_LocalEulerAnglesHint: {x: -27.494, y: 0, z: 0}
 --- !u!1 &772819820
 GameObject:
   m_ObjectHideFlags: 0
@@ -6426,6 +6457,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1949530387}
+  - {fileID: 768281111}
   m_Father: {fileID: 2025040287}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &973065572
@@ -12731,6 +12763,7 @@ GameObject:
   - component: {fileID: 2025040299}
   - component: {fileID: 2025040298}
   - component: {fileID: 2025040297}
+  - component: {fileID: 2025040302}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -12950,6 +12983,20 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2025040302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025040285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51fcbca63dbfee84da9b2216e8f843b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grena: {fileID: 2519994975590211878, guid: aeb97f96208a20940b3068978735e68d, type: 3}
+  throwPoint: {fileID: 768281111}
 --- !u!1 &2032748477
 GameObject:
   m_ObjectHideFlags: 0
